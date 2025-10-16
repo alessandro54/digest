@@ -50,7 +50,6 @@ docker-compose.override.yml
 *.pid
 
 # --- Migrations (optional: keep your Alembic if you use it) ---
-alembic.ini
 migrations/versions/*.pyc
 
 # --- Cache / Misc ---
