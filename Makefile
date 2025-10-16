@@ -15,3 +15,6 @@ UI_DIR      = apps/admin-ui
 
 run-api: ## Run FastAPI dev server
 	cd $(API_DIR) && $(POETRY) run uvicorn app.main:app --reload --port 8000
+
+run-ui: ## Start SvelteKit admin
+	cd $(UI_DIR) && pnpm dev
