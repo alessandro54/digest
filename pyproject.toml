@@ -13,6 +13,7 @@ dependencies = [
     "sqlmodel (>=0.0.27,<0.0.28)",
     "pydantic-settings (>=2.11.0,<3.0.0)",
     "psycopg (>=3.2.10,<4.0.0)",
+    "fastapi[standard] (>=0.119.0,<0.120.0)",
 ]
 
 
