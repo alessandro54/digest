@@ -11,7 +11,6 @@ class SourceService:
     def __init__(self, session: Session) -> None:
         self.repo = SourceRepo(session)
 
-    # CRUD
     def list(self, kind: str | None, enabled: bool | None) -> list[Source]:
         return self.repo.list(kind, enabled)
 

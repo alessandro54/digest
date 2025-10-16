@@ -4,6 +4,9 @@ from datetime import datetime
 
 
 class Source(SQLModel, table=True):
+    __tablename__ = "sources"
+    __table_args__ = {"extend_existing": True}
+
     id: int | None = Field(default=None, primary_key=True)
     slug: str = Field(index=True, unique=True)
     feed_url: str

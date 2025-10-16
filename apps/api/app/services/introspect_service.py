@@ -1,4 +1,3 @@
-from __future__ import annotations
 import feedparser, time
 from typing import Any
 from sqlmodel import Session
