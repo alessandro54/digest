@@ -1,5 +1,4 @@
 # models_source.py
-from __future__ import annotations
 from sqlmodel import SQLModel, Field
 from datetime import datetime
 

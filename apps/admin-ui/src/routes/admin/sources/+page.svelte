@@ -37,6 +37,8 @@
 				<td>
 					<a href={`/admin/sources/${s.slug}`} class="underline">edit</a>
 					&nbsp;|&nbsp;
+					<a href={`/admin/sources/${s.slug}/introspect`} class="underline">introspect</a>
+					&nbsp;|&nbsp;
 					<button on:click={() => remove(s.slug)}>delete</button>
 				</td>
 			</tr>
