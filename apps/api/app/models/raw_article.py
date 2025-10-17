@@ -1,11 +1,15 @@
 from datetime import datetime
-from app.models.source import Source
-from sqlmodel import SQLModel, Column, Field, Relationship
+from typing import TYPE_CHECKING
+from sqlalchemy import Column
 from sqlalchemy.dialects.postgresql import JSONB
+from sqlmodel import SQLModel, Field, Relationship
+
+if TYPE_CHECKING:
+    from .source import Source
+
 
 class RawArticle(SQLModel, table=True):
-    __tablename__ = "raw_articles"
-    __table_args__ = {"extend_existing": True}
+    __tablename__ = "articles_raw"
 
     id: int | None = Field(default=None, primary_key=True)
     source_id: int = Field(foreign_key="sources.id", index=True)
@@ -14,6 +18,4 @@ class RawArticle(SQLModel, table=True):
     payload_json: dict = Field(sa_column=Column(JSONB, nullable=False))
     fetched_at: datetime = Field(default_factory=datetime.utcnow, index=True)
 
-    # Relationships
     source: "Source" = Relationship(back_populates="raw_articles")
-

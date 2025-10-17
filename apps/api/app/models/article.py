@@ -1,13 +1,15 @@
-from __future__ import annotations
 from datetime import datetime
-from app.models.source import Source
+from typing import TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
 from sqlalchemy import Column
 from sqlalchemy.dialects.postgresql import JSONB
 
+if TYPE_CHECKING:
+    from .source import Source
+
 
 class Article(SQLModel, table=True):
-    __tablename__ = "articles"
+    __tablename__ = "articles"  # o "articles_norm" si así lo definiste en la migración
     __table_args__ = {"extend_existing": True}
 
     id: int | None = Field(default=None, primary_key=True)
@@ -20,7 +22,6 @@ class Article(SQLModel, table=True):
     author: str | None = None
     published_at: datetime | None = None
 
-    # ✅ JSONB for array of tags
     tags_json: list[str] | None = Field(default=None, sa_column=Column(JSONB))
 
     content_html: str | None = None
